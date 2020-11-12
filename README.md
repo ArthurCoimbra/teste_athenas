@@ -15,3 +15,5 @@ A aplicação foi desenvolvida utilizando o Framework Laravel e o banco de dados
 
 O site contem as duas listas desejadas de Categorias e Pessoas. Ao se criar uma Pessoa ou Categoria, também é possível editar ou apagar as mesmas, exceto quando existe a tentativa de se apagar uma Categoria na qual existem Pessoas que dependem dela.
 O arquivo 'teste_athenas.sql' é o export do banco de dados utilizado no teste, caso necessário.
+
+Os Endpoints para os CRUDs de Categoria e Pessoa estão todos no padrão REST.
