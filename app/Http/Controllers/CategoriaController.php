@@ -42,12 +42,25 @@ class CategoriaController extends Controller
 
     public function edit($id)
     {
-        //
+      
+        $categoria = Categoria::findOrFail($id);
+
+        return view('categorias/edit',[
+          'categoria' => $categoria,
+        ]);
     }
 
     public function update(Request $request, $id)
     {
-        //
+      $data = request()->validate([
+        'nome' => ['required','string', 'max:100'],
+      ]);
+
+      $categoria = Categoria::findOrFail($id);
+
+      $categoria->update($data);
+
+      return redirect('categorias');
     }
 
     /**

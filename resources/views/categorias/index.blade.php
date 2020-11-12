@@ -10,6 +10,7 @@
         <tr>
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -17,6 +18,9 @@
         <tr>
           <th scope="row">{{ $categoria->id }}</th>
           <td>{{ $categoria->nome }}</td>
+          <td>
+            <a href="/categorias/{{$categoria->id}}/edit"  class="btn btn-primary">Editar Categoria</a>
+          </td>
         </tr>
         @endforeach
       </tbody>

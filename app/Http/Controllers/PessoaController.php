@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Categoria;
 use App\Models\Pessoa;
+use Illuminate\Support\Facades\DB;
 
 
 
@@ -13,12 +14,13 @@ class PessoaController extends Controller
 
     public function index()
     {
-      $pessoas = Pessoa::all();
+      $pessoas = DB::table('pessoas')->join('categorias', 'categorias.id', '=', 'pessoas.categoria_id')->select('pessoas.*', 'categorias.nome as nomeCategoria')->get();
+
 
       return view('pessoas/index',[
         'pessoas' => $pessoas,
       ]);
-      
+
     }
 
 
@@ -50,38 +52,43 @@ class PessoaController extends Controller
       return redirect('pessoas');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
-        //
+
+      $pessoa = DB::table('pessoas')->join('categorias', 'categorias.id', '=', 'pessoas.categoria_id')->select('pessoas.*', 'categorias.nome as nomeCategoria')->where('pessoas.id', '=', $id)->get();
+      $categorias_restantes =  DB::table('categorias')->where('categorias.id', '!=', $pessoa[0]->categoria_id)->get();
+
+      return view('pessoas/edit',[
+        'pessoa' => $pessoa[0],
+        'categorias' => $categorias_restantes,
+      ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        //
+      $data = request()->validate([
+        'nome' => ['required','string', 'max:100'],
+        'email' => ['required','email'],
+        'categoria' => ['required','string', 'max:100'],
+      ]);
+
+      $pessoa = Pessoa::findOrFail($id);
+
+      $pessoa->update([
+        'nome' => $request->nome,
+        'email' => $request->email,
+        'categoria_id' => $request->categoria,
+      ]);
+
+      return redirect('pessoas');
     }
 
     /**
