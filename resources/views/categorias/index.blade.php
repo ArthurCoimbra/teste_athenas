@@ -11,6 +11,7 @@
           <th scope="col">Código</th>
           <th scope="col">Nome</th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -19,7 +20,14 @@
           <th scope="row">{{ $categoria->id }}</th>
           <td>{{ $categoria->nome }}</td>
           <td>
-            <a href="/categorias/{{$categoria->id}}/edit"  class="btn btn-primary">Editar Categoria</a>
+            <a href="/categorias/{{$categoria->id}}/edit"  class="btn btn-primary">Editar</a>
+          </td>
+          <td>
+            <form action="/categorias/{{$categoria->id}}" method="post">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
           </td>
         </tr>
         @endforeach

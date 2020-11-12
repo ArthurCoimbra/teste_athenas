@@ -42,7 +42,7 @@ class CategoriaController extends Controller
 
     public function edit($id)
     {
-      
+
         $categoria = Categoria::findOrFail($id);
 
         return view('categorias/edit',[
@@ -63,14 +63,12 @@ class CategoriaController extends Controller
       return redirect('categorias');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        $categoria->delete();
+
+        return redirect('categorias');
     }
 }

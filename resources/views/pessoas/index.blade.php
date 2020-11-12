@@ -13,6 +13,7 @@
           <th scope="col">Email</th>
           <th scope="col">Categoria</th>
           <th scope="col"></th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -23,7 +24,14 @@
           <td>{{ $pessoa->email }}</td>
           <td>{{ $pessoa->nomeCategoria }}</td>
           <td>
-            <a href="/pessoas/{{$pessoa->id}}/edit"  class="btn btn-primary">Editar Pessoa</a>
+            <a href="/pessoas/{{$pessoa->id}}/edit"  class="btn btn-primary">Editar</a>
+          </td>
+          <td>
+            <form action="/pessoas/{{$pessoa->id}}" method="post">
+              @csrf
+              @method('DELETE')
+              <button type="submit" class="btn btn-danger">Excluir</button>
+            </form>
           </td>
         </tr>
         @endforeach

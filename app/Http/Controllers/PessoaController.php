@@ -91,14 +91,11 @@ class PessoaController extends Controller
       return redirect('pessoas');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+      $pessoa = Pessoa::findOrFail($id);
+      $pessoa->delete();
+
+      return redirect('pessoas');
     }
 }
