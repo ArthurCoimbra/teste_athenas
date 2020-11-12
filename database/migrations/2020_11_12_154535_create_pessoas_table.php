@@ -16,6 +16,11 @@ class CreatePessoasTable extends Migration
         Schema::create('pessoas', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->foreignId('categoria_id')->constrained();
+            $table->string('nome');
+            $table->string('email');
+
+            $table->index('categoria_id');
         });
     }
 
