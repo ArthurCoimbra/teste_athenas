@@ -32,12 +32,18 @@
 
     <div class="form-group">
       <label for="categoria" class="font-weight-bold">Categoria</label>
-      <select name="categoria"class="form-control input-lg" id="categoria">
+      <select name="categoria" class="form-control input-lg @error('categoria') is-invalid @enderror" id="categoria">
           <option value="0" selected disabled>Selecione a categoria.</option>
           @foreach ($categorias as $categoria)
             <option value="{{ $categoria->id }}">{{ $categoria->nome }}</option>
           @endforeach
       </select>
+
+      @error('categoria')
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $message }}</strong>
+          </span>
+      @enderror
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
