@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\PessoaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resources([
+    'categorias' => CategoriaController::class,
+    'pessoas' => PessoaController::class,
+]);
