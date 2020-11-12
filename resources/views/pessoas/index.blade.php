@@ -5,7 +5,7 @@
     <h1 class="font-weight-bold">Pessoas</h1>
     <br/>
 
-    <table id="table_pessoas" class="table table-striped">
+    <table id="table_pessoas" class="table table-striped text-center">
       <thead>
         <tr>
           <th scope="col">Código</th>

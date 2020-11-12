@@ -9,8 +9,6 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-
-
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
 
@@ -31,7 +29,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/categorias">Categorias</a>
             </li>
-            
+
             <li class="nav-item">
               <a class="nav-link" href="/pessoas">Pessoas</a>
             </li>

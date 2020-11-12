@@ -14,8 +14,7 @@ class PessoaController extends Controller
 
     public function index()
     {
-      $pessoas = DB::table('pessoas')->join('categorias', 'categorias.id', '=', 'pessoas.categoria_id')->select('pessoas.*', 'categorias.nome as nomeCategoria')->get();
-
+      $pessoas = DB::table('pessoas')->join('categorias', 'categorias.id', '=', 'pessoas.categoria_id')->select('pessoas.*', 'categorias.nome as nomeCategoria')->orderBy('pessoas.id', 'asc')->get();
 
       return view('pessoas/index',[
         'pessoas' => $pessoas,

@@ -5,7 +5,7 @@
     <h1 class="font-weight-bold">Categorias</h1>
     <br/>
 
-    <table class="table table-striped">
+    <table class="table table-striped text-center" id="table_categorias">
       <thead>
         <tr>
           <th scope="col">Código</th>
@@ -64,6 +64,5 @@
 
     <a href="/categorias/create"  class="btn btn-primary">Criar Nova Categoria</a>
   </div>
-
 
 @endsection
