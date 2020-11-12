@@ -9,6 +9,8 @@ class Pessoa extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+    
     public function categoria(){
       return $this->belongsTo(Categoria::class);
     }

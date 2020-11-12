@@ -3,38 +3,51 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Categoria;
+use App\Models\Pessoa;
+
+
 
 class PessoaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+      $pessoas = Pessoa::all();
+
+      return view('pessoas/index',[
+        'pessoas' => $pessoas,
+      ]);
+      
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+      $categorias = Categoria::all();
+
+      return view('pessoas/create', [
+        'categorias' => $categorias,
+      ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
-        //
+
+      $data = request()->validate([
+        'nome' => ['required','string', 'max:100'],
+        'email' => ['required','email'],
+        'categoria' => ['required','string', 'max:100'],
+      ]);
+
+      Pessoa::create([
+        'nome' => $request->nome,
+        'email' => $request->email,
+        'categoria_id' => $request->categoria,
+      ]);
+
+      return redirect('pessoas');
     }
 
     /**
