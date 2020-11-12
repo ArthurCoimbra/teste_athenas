@@ -7,7 +7,6 @@
     <hr class="my-4">
     <p>Selecione a lista desejada:</p>
         <a href="/categorias" class="btn btn-primary btn-lg btn-block">Categorias</a>
-
-          <a href="/pessoas" class="btn btn-primary btn-lg btn-block">Pessoas</a>
+        <a href="/pessoas" class="btn btn-primary btn-lg btn-block">Pessoas</a>
   </div>
 @endsection
