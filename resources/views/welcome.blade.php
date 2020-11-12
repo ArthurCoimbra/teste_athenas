@@ -2,10 +2,10 @@
 
 @section('content')
   <div class="jumbotron col-6">
-    <h1 class="display-4">Hello, world!</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <h1 class="display-4">Bem vindo!</h1>
+    <p class="lead">Esse é um protótipo para o teste da empresa Athenas.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p>Selecione o CRUD desejado:</p>
     <p class="lead">
       <ul class="list-group">
         <li class="list-group-item">
