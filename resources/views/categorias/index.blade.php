@@ -5,6 +5,10 @@
     <h1 class="font-weight-bold">Categorias</h1>
     <br/>
 
+    @if (session('error'))
+      <div class="alert alert-danger">{{ session('error') }}</div>
+    @endif
+
     <table class="table table-striped text-center" id="table_categorias">
       <thead>
         <tr>

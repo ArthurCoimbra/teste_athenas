@@ -2,6 +2,7 @@
 
 @section('content')
   <div class="container">
+
     <h1 class="font-weight-bold">Pessoas</h1>
     <br/>
 

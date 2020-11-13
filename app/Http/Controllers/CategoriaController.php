@@ -67,7 +67,15 @@ class CategoriaController extends Controller
     public function destroy($id)
     {
         $categoria = Categoria::findOrFail($id);
-        $categoria->delete();
+
+        try {
+          $categoria->delete();
+        } catch (\Exception $e) {
+           $error_code = $e->errorInfo[0];
+           if($error_code == "23000"){
+             return back()->withError("Categoria não pode ser removida pois existem pessoas ligadas à ela.")->withInput();
+           }
+        }
 
         return redirect('categorias');
     }
